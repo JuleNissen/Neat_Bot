@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Neat_Bot", "Neat_Bot\Neat_Bot.pyproj", "{03748411-C552-49A7-BE22-E95DC3C2B1F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03748411-C552-49A7-BE22-E95DC3C2B1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03748411-C552-49A7-BE22-E95DC3C2B1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE092CF6-283B-48D5-A30B-5C56A21182CE}
+	EndGlobalSection
+EndGlobal
