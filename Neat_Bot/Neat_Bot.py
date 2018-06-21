@@ -10,16 +10,21 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 import asyncio
 
+
 startup_extensions = ["Music"]
 #To send command to this bot user must start command with "§" to be recognised
-bot = commands.Bot(command_prefix="§") 
+bot = commands.Bot(command_prefix="§")
+client = discord.Client()
+
 
 @bot.event
-async def on_ready():
-	print ("Bot is armed and ready, sir!")
+async def on_ready():   
+    await bot.change_presence(game=discord.Game(name="Slap my bitch up!"), status=discord.Status("idle")) 
+print ("Bot is armed and ready, sir!")
+
 
 #Allow users to request user-info for other users.
-@bot.command(pass_context=True)
+@bot.command(pass_context = True)
 async def info(ctx, user: discord.Member):
     embed = discord.Embed(title="{}'s info".format(user.name), description="Information on user", color=0xffffff, inline= True)
     embed.add_field(name="Name", value=user.name)
@@ -30,8 +35,9 @@ async def info(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
+
 #Allow users to get info of server
-@bot.command(pass_context=True)
+@bot.command(pass_context = True)
 async def serverinfo(ctx):
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Information on server", color=0x00ff00, inline = True)
     embed.set_author(name="NSA")
@@ -42,25 +48,31 @@ async def serverinfo(ctx):
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)
 
+
 #Custom introduction
-@bot.command(pass_context=True)
+@bot.command(pass_context = True)
 async def introduction(ctx):
     await bot.say("Hello! \n" + "My name is {}".format(bot.user.name)+"\n"
     + "You can give me commands by using the § sign followed by a command you wish me to fulfill \n"
     + "If you want more info, just type: §help")
 
+
 #Allow users in group Admin to kick anyone outside group.
-@bot.command(pass_context=True)
+@bot.command(pass_context = True)
 async def kick(ctx, user:discord.Member):
     await bot.say(":eggplant: Begone! {}".format(user.name))
-    try:
-        await bot.kick(user)
-        
+    await bot.kick(user)
+
+#TODO: Allow user to delete last message sent from bot.        
+@bot.command(pass_context = True)
+async def deleteLast(ctx, *, msg = None):
+    await bot.delete_message(ctx.message)
 
 # https://www.youtube.com/watch?v=FpRzDY0-I1o 
 class Main_Commands():
     def __init__(self, bot):
         self.bot = bot
+
 #from youtube link.
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -70,6 +82,7 @@ if __name__ == "__main__":
             exc = "{}: {}".format(type(e).__name__, e)
             print("Failed to load extension {}+n{}".format(startup_extensions, exc))
 
+
 #In this version of code the token is NOT implemented for own protection!
 #TODO: remove/add token ID to make bot function
-bot.run("TOKEN")
+bot.run("NDU5MTI2Mzc4MTg5ODE1ODA4.Dg170w.FJjzZMkTuXmEDxOwUz6qinzUwPE")
