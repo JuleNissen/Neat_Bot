@@ -85,4 +85,4 @@ if __name__ == "__main__":
 
 #In this version of code the token is NOT implemented for own protection!
 #TODO: remove/add token ID to make bot function
-bot.run("NDU5MTI2Mzc4MTg5ODE1ODA4.Dg170w.FJjzZMkTuXmEDxOwUz6qinzUwPE")
+bot.run("TOKEN")
