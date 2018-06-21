@@ -10,6 +10,7 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 import asyncio
 
+startup_extensions = ["Music"]
 #To send command to this bot user must start command with "§" to be recognised
 bot = commands.Bot(command_prefix="§") 
 
@@ -50,11 +51,24 @@ async def introduction(ctx):
 
 #Allow users in group Admin to kick anyone outside group.
 @bot.command(pass_context=True)
-@commands.has_role("Admin")
 async def kick(ctx, user:discord.Member):
     await bot.say(":eggplant: Begone! {}".format(user.name))
-    await bot.kick(user)
+    try:
+        await bot.kick(user)
+        
 
+# https://www.youtube.com/watch?v=FpRzDY0-I1o 
+class Main_Commands():
+    def __init__(self, bot):
+        self.bot = bot
+#from youtube link.
+if __name__ == "__main__":
+    for extension in startup_extensions:
+        try:
+            bot.load_extension(extension)
+        except Exception as e:
+            exc = "{}: {}".format(type(e).__name__, e)
+            print("Failed to load extension {}+n{}".format(startup_extensions, exc))
 
 #In this version of code the token is NOT implemented for own protection!
 #TODO: remove/add token ID to make bot function
