@@ -61,7 +61,8 @@ async def introduction(ctx):
     + "You can give me commands by using the § sign followed by a command you wish me to fulfill \n"
     + "If you want more info, just type: §help")
 
-#from youtube link.
+#From youtube link: https://www.youtube.com/watch?v=FpRzDY0-I1o 
+#Will try to load extensions, will trow error if failure.
 if __name__ == "__main__":
     for extension in startup_extensions:
         try:

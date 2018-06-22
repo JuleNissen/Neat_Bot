@@ -1,6 +1,12 @@
+#This code represents what the author thinks goes under utility functions.
+#Code is meant to work with Neat-Bot.
+#Modules need self as argument for each command-funcs.
+#NOTE: modules have "self.bot.say" instead of "bot.say" !
+
 import discord
 from discord.ext import commands
 
+#Define the word bot.
 bot = commands.Bot(command_prefix="§")
 
 class Utility():
@@ -17,13 +23,12 @@ class Utility():
 
     #TODO: Allow user to delete last message sent from bot.        
     @bot.command(pass_context = True)
-    async def deleteLast(self, ctx, *, msg = 1):
+    async def deleteLast(self, ctx, *, msg = None):
         """Delete the last sent message."""
         await self.bot.delete_message(ctx.message)
         await self.bot.say("Just deleted the previous message!:wink:")
 
+#This is nessecary for modules implemented for Neat-Bot
 def setup(bot):
     bot.add_cog(Utility(bot))
     print('Utilities is loaded')
-
-    # https://www.youtube.com/watch?v=FpRzDY0-I1o 
