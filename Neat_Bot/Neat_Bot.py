@@ -28,7 +28,7 @@ async def on_ready():
 #Allow users to request user-info for other users.
 @bot.command(pass_context = True)
 async def info(ctx, user: discord.Member):
-    """Allows user to specify which user to get information about"""
+    """Allows user to specify user to get information about"""
     embed = discord.Embed(title="{}'s info".format(user.name), description="Information on user", color=0xffffff, inline= True)
     embed.add_field(name="Name", value=user.name)
     embed.add_field(name="ID", value=user.id)
